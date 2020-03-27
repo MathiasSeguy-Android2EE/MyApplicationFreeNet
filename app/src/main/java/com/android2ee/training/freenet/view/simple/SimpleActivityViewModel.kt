@@ -6,20 +6,32 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android2ee.training.freenet.repository.AndroidDatabase
 import com.android2ee.training.freenet.repository.FileDao
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 // 
 /** Created by Mathias Seguy also known as Android2ee on 11/03/2020.
  * The goal of this class is to :
  *
  */
-class SimpleActivityViewModel : ViewModel() {
+class SimpleActivityViewModel : ViewModel(), CoroutineScope {
 
     companion object {
         val TAG = "SimpleActivityViewModel"
     }
+
+    /***********************************************************
+     *  Managing the incrementatin of the ticker
+     *  Using Corutines
+     **********************************************************/
+
+    private var job: Job = Job()
+
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + job
 
     /***********************************************************
      *  Attributes
@@ -47,7 +59,7 @@ class SimpleActivityViewModel : ViewModel() {
      */
     init {
         //load your data (there is no param, so go for it here)
-        GlobalScope.launch(Dispatchers.IO) {
+        launch(Dispatchers.IO) {
             _mDescriptionStateInternal.postValue(database.description)
         }
     }
@@ -61,7 +73,7 @@ class SimpleActivityViewModel : ViewModel() {
      */
     fun getPictureAsync(name: String) {
         //create a non blocking coroutine in IO threads
-        GlobalScope.launch(Dispatchers.IO) {
+        launch(Dispatchers.IO) {
             _mPictureStateInternal.postValue(FileDao.getPicture(name))
         }
     }
