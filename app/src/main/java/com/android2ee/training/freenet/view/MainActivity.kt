@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.android2ee.training.freenet.R
+import com.android2ee.training.freenet.view.simple.SimpleActivity
 
 class MainActivity : AppCompatActivity() {
 
