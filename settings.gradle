@@ -1,0 +1,2 @@
+rootProject.name='MyApplicationFreeNet'
+include ':app'
