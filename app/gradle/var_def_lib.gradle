@@ -1,0 +1,79 @@
+//This is the list of the version of library you use
+project.ext {
+
+    //Current libraries versions
+    //--------------------------
+
+//    https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib-jdk7
+    orgJetbrainsKotlin_kotlinStdlibJdk7_Version = "1.3.71"//1.3.41->1.3.71
+//    https://github.com/Kotlin/kotlinx.coroutines
+    orgJetbrainsKotlinx_kotlinxCoroutinesCore_Version = '1.3.5'//'1.3.0-M2'->1.3.5
+    orgJetbrainsKotlinx_kotlinxCoroutinesAndroid_Version = '1.3.5'//'1.3.0-M2'->1.3.5
+    netDanlew_androidJoda_Version = '2.9.2'
+    orgMockito_mockitoAndroid_Version = '2.12.0'//1.10.19
+    //https://github.com/googlemaps/android-maps-utils/releases
+    androidGoogleMapUtil = "0.5"
+
+    //in your SDK manager
+    buildToolsVersion = "29.0.1"
+
+    //https://developer.android.com/training/testing/espresso/setup.html
+    //http://junit.org/junit5/
+    junit_junit_Version = "4.12"//->JUnit 5 is on the road need to be tested
+    //tests
+    //https://github.com/mockito/mockito/releases
+    orgMockito_mockitoCore_Version = "2.19.0"
+    //https://github.com/googlemaps/android-maps-utils/releases
+    comGoogleMapsAndroid_androidMapsUtils = "0.5"
+    //natural libs
+    //https://github.com/greenrobot/EventBus/releases
+    orgGreenrobot_eventbus_Version = "3.1.1"
+    //https://github.com/f2prateek/dart/releases
+    comF2prateekDart_dart_Version = "2.0.3"
+    comF2prateekDart_dartProcessor_Version = comF2prateekDart_dart_Version
+    comF2prateekDart_henson_Version = comF2prateekDart_dart_Version
+    comF2prateekDart_hensonProcessor_Version = comF2prateekDart_dart_Version
+
+    //http communication//TODO migrate OkHttp to its next version
+    //http://square.github.io/retrofit/
+    comSquareupRetrofit2_retrofit_Version = "2.4.0"//"2.4.0"//2.6.2
+    comSquareupRetrofit2_converterMoshi_Version = comSquareupRetrofit2_retrofit_Version
+    //http://square.github.io/okhttp
+    //https://github.com/square/okhttp/releases
+    comSquareupOkhttp3_okhttp_Version = "3.11.0"//"3.11.0"//3.14.4
+    comSquareupOkhttp3_loggingInterceptor_Version = comSquareupOkhttp3_okhttp_Version
+    //https://github.com/square/moshi/releases
+    comSquareupMoshi_moshi_Version = "1.7.0"//"""1.7.0"//1.8.0
+    //https://github.com/square/okio/releases
+    comSquareupOkio_okio_Version = "1.16.0"//"""1.16.0"//2.4.1
+    //https://github.com/facebook/network-connection-class/releases
+    comFacebookNetworkConnectionclass_connectionclass_Version = "1.0.1"
+
+    //GDirectionApiUtil
+    gDirectionApiUtilVersion = "1.1.0"
+    //debug tools
+    //https://github.com/square/leakcanary/releases
+    comSquareupLeakcanary_leakcanaryAndroidNoOp_Version = "1.6.3"
+    comSquareupLeakcanary_leakcanaryAndroid_Version = comSquareupLeakcanary_leakcanaryAndroidNoOp_Version
+
+    //Joda Time
+    jodaTimeVersion = '2.9.2'
+    // Batch
+    comBatchAndroid_batchSdk_Version = "1.12+"
+    //https://mvnrepository.com/artifact/org.json/json
+    orgJson_json_Version = "20180130"
+
+    //facebook analyse tools
+    //http://facebook.github.io/stetho/#download
+    comFacebookStetho_stetho_Version = "1.5.0"
+    comFacebookStetho_stethoOkhttp3_Version = comFacebookStetho_stetho_Version
+    //MPAndroidChart Library
+    comGithubPhilJay_MPAndroidChart_Version = "v3.0.3"
+
+    // Picasso (Image downloading and caching)
+    comSquareupPicasso_picasso_Version = "2.71828"
+
+    //debug tools
+    //https://github.com/square/leakcanary/releases
+    leakcanaryVersion = "1.6.3"
+}
