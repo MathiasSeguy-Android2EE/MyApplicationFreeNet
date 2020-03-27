@@ -1,18 +1,14 @@
 package com.android2ee.training.freenet.view.simple
 
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.android2ee.training.freenet.MyApplication
 import com.android2ee.training.freenet.repository.AndroidDatabase
+import com.android2ee.training.freenet.repository.FileDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.io.File
-import java.io.FileInputStream
 
 // 
 /** Created by Mathias Seguy also known as Android2ee on 11/03/2020.
@@ -66,17 +62,7 @@ class SimpleActivityViewModel : ViewModel() {
     fun getPictureAsync(name: String) {
         //create a non blocking coroutine in IO threads
         GlobalScope.launch(Dispatchers.IO) {
-            val image = File(MyApplication.instance.getCacheDir(), "$name.jpg")
-            var bitmap: Bitmap? = null
-            try {
-                val buf = ByteArray(image.length().toInt())
-                val inputStream = FileInputStream(image)
-                inputStream.read(buf)
-                bitmap = BitmapFactory.decodeByteArray(buf, 0, image.length().toInt())
-            } catch (e: Exception) {
-                Log.e(TAG, "picture", e)
-            }
-            _mPictureStateInternal.postValue(bitmap)
+            _mPictureStateInternal.postValue(FileDao.getPicture(name))
         }
     }
 
