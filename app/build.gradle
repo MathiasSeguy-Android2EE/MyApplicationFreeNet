@@ -1,4 +1,3 @@
-
 apply plugin: 'com.android.application'//'com.android.application' //'com.android.library'
 /**
  * Our variables definition for the build script
@@ -48,7 +47,7 @@ android {
         //if you want your test to be found using JUnit4
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = project.useSupportLibVectorDrawable
-         //use Dart and Henson
+        //use Dart and Henson
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = ['dart.henson.package': 'org.kamereon.service.henson']
@@ -72,20 +71,20 @@ android {
 /***********************************************************
  *  Signing
  **********************************************************/
-signingConfigs {
-    debug {
-        storeFile project.ext.JKSFile
-        storePassword project.ext.JKSPassword
-        keyAlias project.ext.JKSKeyAlias
-        keyPassword project.ext.JKSKeyPassword
+    signingConfigs {
+        debug {
+            storeFile project.ext.JKSFile
+            storePassword project.ext.JKSPassword
+            keyAlias project.ext.JKSKeyAlias
+            keyPassword project.ext.JKSKeyPassword
+        }
+        release {
+            storeFile project.ext.JKSFile_Release
+            storePassword project.ext.JKSPassword_Release
+            keyAlias project.ext.JKSKeyAlias_Release
+            keyPassword project.ext.JKSKeyPassword_Release
+        }
     }
-    release {
-        storeFile project.ext.JKSFile_Release
-        storePassword project.ext.JKSPassword_Release
-        keyAlias project.ext.JKSKeyAlias_Release
-        keyPassword project.ext.JKSKeyPassword_Release
-    }
-}
 
     /***********************************************************
      *  Default values for all variants
@@ -101,7 +100,6 @@ signingConfigs {
         resValue "color", "color_var", "#FF00ff"
         resValue "bool", "isBoolAllowed", "true"
     }
-
 
 
     buildTypes {
@@ -139,7 +137,7 @@ signingConfigs {
     /***********************************************************
      *  Managing flavors
      **********************************************************/
-     configurations.all {
+    configurations.all {
         resolutionStrategy.force "junit:junit:${junit_junit_Version}"
         resolutionStrategy.force "androidx.annotation:annotation:${androidxAnnotation_annotation_Version}"
         resolutionStrategy.force "com.google.code.findbugs:jsr305:${findbugs_version}"
@@ -191,8 +189,8 @@ apply from: './gradle/var_def_lib.gradle'
 apply from: './gradle/var_definition.gradle'
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-	implementation "androidx.appcompat:appcompat:${androidxAppcompat_appcompat_Version}"
-	androidTestImplementation "androidx.test.espresso:espresso-core:${androidxTestEspresso_espressoCore_Version}"
+    implementation "androidx.appcompat:appcompat:${androidxAppcompat_appcompat_Version}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${androidxTestEspresso_espressoCore_Version}"
     //Crashlytics
     implementation("com.crashlytics.sdk.android:crashlytics:${comCrashlyticsSdkAndroid_crashlytics_Version}") {
         transitive = true;
